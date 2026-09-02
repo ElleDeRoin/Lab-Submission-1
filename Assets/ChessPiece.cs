@@ -5,41 +5,71 @@ using UnityEditor;
 
 public class ChessPiece : MonoBehaviour
 {
-    public static string[] options = new string[] { "Pawn", "Rook", "Knight", "Bishop", "Queen", "King" };
-    private static int index = 0;
-    [MenuItem("UI Toolkit/Example")]
-    
-    public static void ShowPopup()
-    {
-        index = EditorGUILayout.Popup(index, options);
-    }
+    private float gizmoSize = 0f;
 
+
+    // idek
+    public static string[] options = new string[] { "Pawn", "Rook", "Knight", "Bishop", "Queen", "King" };
 
 
     public void ChangePieceType(string type)
     {
-        switch (type) {
-            case "Chess_pawn":
-            // Change the piece to a pawn
-            break;
-        case "Chess_rook":
-            // Change the piece to a rook
-            break;
-        case "Chess_knight":
-            // Change the piece to a knight
-            break;
-        case "Chess_bishop":
-            // Change the piece to a bishop
-            break;
-        case "Chess_queen":
-            // Change the piece to a queen
-            break;
-        case "Chess_king":
-            // Change the piece to a kings
-            break;
+        switch (type)
+        {
+            case "pawn":
+                // Change the piece to a pawn
+                gizmoSize = 2f;
+                break;
+            case "rook":
+                gizmoSize = 8f;
+                break;
+            case "knight":
+                // Change the piece to a knight
+                gizmoSize = 4f;
+                break;
+            case "bishop":
+                // Change the piece to a bishop
+                gizmoSize = 8f;
+                break;
+            case "queen":
+                // Change the piece to a queen
+                gizmoSize = 8f;
+                break;
+            case "king":
+                // Change the piece to a kings
+                gizmoSize = 1f;
+                break;
+            default:
+                gizmoSize = 0f;
+                break;
         }
         return;
     }
+
+
+
+    private void OnDrawGizmos()
+    {
+        ChangePieceType(pieceType);
+
+        Gizmos.color = Color.yellow;
+        Vector3 forwardDirection = Vector3.up * gizmoSize;
+        Vector3 rightDirection = Vector3.right * gizmoSize;
+        Vector3 leftDirection = Vector3.left * gizmoSize;
+        Vector3 backDirection = Vector3.down * gizmoSize;
+
+
+        Gizmos.DrawLine(transform.position, forwardDirection);
+        Gizmos.DrawLine(transform.position, rightDirection);
+        Gizmos.DrawLine(transform.position, leftDirection);
+        Gizmos.DrawLine(transform.position, backDirection);
+
+        // cam do diagonals
+
+
+    }
+
+    
 }
 
 
