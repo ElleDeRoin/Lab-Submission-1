@@ -64,4 +64,29 @@ public class ChessPiece : MonoBehaviour
 
 
     }
+
+
+
+    private void OnDrawGizmos()
+    {
+        ChangePieceType(pieceType);
+
+        Gizmos.color = Color.yellow;
+        Vector3 forwardDirection = Vector3.up * gizmoSize;
+        Vector3 rightDirection = Vector3.right * gizmoSize;
+        Vector3 leftDirection = Vector3.left * gizmoSize;
+        Vector3 backDirection = Vector3.down * gizmoSize;
+
+
+        Gizmos.DrawLine(transform.position, forwardDirection);
+        Gizmos.DrawLine(transform.position, rightDirection);
+        Gizmos.DrawLine(transform.position, leftDirection);
+        Gizmos.DrawLine(transform.position, backDirection);
+
+        // cam do diagonals
+
+
+    }
+
+    
 }
