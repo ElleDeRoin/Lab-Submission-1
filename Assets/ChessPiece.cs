@@ -1,87 +1,223 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 
 public class ChessPiece : MonoBehaviour
 {
-    public enum options { Pawn, Rook, Knight, Bishop, Queen, King };
+    //Stores the types of chess pieces
+    public enum options
+    {
+        Pawn,
+        Rook,
+        Knight,
+        Bishop,
+        Queen,
+        King
+    };
+
+    //The default chess piece and colors
     public options currentOption = options.Pawn;
 
-    int gizmoSize = 1;
+    //Set chess piece sprite and color
+    [Header("Piece Settings")]
+    public Color pieceColor = Color.white;
 
-    private void OnDrawGizmos()
+    public Sprite pawnSprite;
+    public Sprite rookSprite;
+    public Sprite knightSprite;
+    public Sprite bishopSprite;
+    public Sprite queenSprite;
+    public Sprite kingSprite;
+
+    [Header("Move Display")]
+    public Color moveColor = Color.green;
+
+    private SpriteRenderer spriteRenderer;
+
+    private void OnValidate()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
+        if (spriteRenderer == null)
+        {
+            spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
+        }
+
+        spriteRenderer.color = pieceColor;
+
+        //Change sprite to show correct piece based on type
         switch (currentOption)
         {
             case options.Pawn:
-                Gizmos.DrawIcon(transform.position, "Chess_pawn.png");
-                gizmoSize = 2;
+                spriteRenderer.sprite = pawnSprite;
                 break;
+
             case options.Rook:
-                Gizmos.DrawIcon(transform.position, "Chess_rook.png");
-                gizmoSize = 8;
+                spriteRenderer.sprite = rookSprite;
                 break;
+
             case options.Knight:
-                Gizmos.DrawIcon(transform.position, "Chess_knight.png");
-                gizmoSize = 4;
+                spriteRenderer.sprite = knightSprite;
                 break;
+
             case options.Bishop:
-                Gizmos.DrawIcon(transform.position, "Chess_bishop.png");
-                gizmoSize = 8;
+                spriteRenderer.sprite = bishopSprite;
                 break;
+
             case options.Queen:
-                Gizmos.DrawIcon(transform.position, "Chess_queen.png");
-                gizmoSize = 8;
+                spriteRenderer.sprite = queenSprite;
                 break;
+
             case options.King:
-                Gizmos.DrawIcon(transform.position, "Chess_king.png");
-                gizmoSize = 1;
+                spriteRenderer.sprite = kingSprite;
                 break;
         }
-
     }
 
+    // Draws the possible moves for the selected piece
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
 
+        Gizmos.DrawWireCube(
+            transform.position,
+            Vector3.one
+        );
+
+         Gizmos.color = moveColor;
+
+        //Draws the possible moves for the selected piece based on piece type
         switch (currentOption)
         {
             case options.Pawn:
-                Gizmos.DrawWireSphere(transform.position, 0.5f);
+                DrawPawnMoves();
                 break;
+
             case options.Rook:
-                Gizmos.DrawWireSphere(transform.position, 0.5f);
+                DrawRookMoves();
                 break;
+
             case options.Knight:
-                Gizmos.DrawWireSphere(transform.position, 0.5f);
+                DrawKnightMoves();
                 break;
+
             case options.Bishop:
-                Gizmos.DrawWireSphere(transform.position, 0.5f);
+                DrawBishopMoves();
                 break;
+
             case options.Queen:
-                Gizmos.DrawWireSphere(transform.position, 0.5f);
+                DrawQueenMoves();
                 break;
+
             case options.King:
-                Gizmos.DrawWireSphere(transform.position, 0.5f);
+                DrawKingMoves();
                 break;
         }
-
-        Gizmos.color = Color.yellow;
-        Vector3 forwardDirection = Vector3.up * gizmoSize;
-        Vector3 rightDirection = Vector3.right * gizmoSize;
-        Vector3 leftDirection = Vector3.left * gizmoSize;
-        Vector3 backDirection = Vector3.down * gizmoSize;
-
-
-        Gizmos.DrawLine(transform.position, forwardDirection);
-        Gizmos.DrawLine(transform.position, rightDirection);
-        Gizmos.DrawLine(transform.position, leftDirection);
-        Gizmos.DrawLine(transform.position, backDirection);
-
     }
 
-    
+
+    private void DrawPawnMoves()
+    {
+        DrawMoveSquare(0, 1);
+        DrawMoveSquare(0, 2);
+    }
+
+    private void DrawRookMoves()
+    {
+        for (int i = 1; i < 8; i++)
+        {
+            DrawMoveSquare(0, i);
+        }
+        for (int i = 1; i < 8; i++)
+        {
+            DrawMoveSquare(0, -i);
+        }
+        for (int i = 1; i < 8; i++)
+        {
+            DrawMoveSquare(i, 0);
+        }
+        for (int i = 1; i < 8; i++)
+        {
+            DrawMoveSquare(-i, 0);
+        }
+    }
+
+    private void DrawBishopMoves()
+    {
+        for (int i = 1; i < 8; i++)
+        {
+            DrawMoveSquare(i, i);
+        }
+        for (int i = 1; i < 8; i++)
+        {
+            DrawMoveSquare(-i, i);
+        }
+        for (int i = 1; i < 8; i++)
+        {
+            DrawMoveSquare(i, -i);
+        }
+        for (int i = 1; i < 8; i++)
+        {
+            DrawMoveSquare(-i, -i);
+        }
+    }
+
+    private void DrawQueenMoves()
+    {
+        DrawRookMoves();
+        DrawBishopMoves();
+    }
+
+    private void DrawKnightMoves()
+    {
+        DrawMoveSquare(1, 2);
+        DrawMoveSquare(2, 1);
+
+        DrawMoveSquare(-1, 2);
+        DrawMoveSquare(-2, 1);
+
+        DrawMoveSquare(1, -2);
+        DrawMoveSquare(2, -1);
+
+        DrawMoveSquare(-1, -2);
+        DrawMoveSquare(-2, -1);
+    }
+
+    private void DrawKingMoves()
+    {
+        DrawMoveSquare(0, 1);
+        DrawMoveSquare(0, -1);
+        DrawMoveSquare(1, 0);
+        DrawMoveSquare(-1, 0);
+        DrawMoveSquare(1, 1);
+        DrawMoveSquare(-1, 1);
+        DrawMoveSquare(1, -1);
+        DrawMoveSquare(-1, -1);
+    }
+
+    //Draws the actuall squares for the moves of each selected piece
+    private void DrawMoveSquare(int x, int y)
+    {
+        Vector3 position = transform.position;
+
+        position.x += x;
+        position.y += y;
+
+        Vector3 size = new Vector3(
+            0.75f,
+            0.75f,
+            0.1f
+        );
+
+        Gizmos.DrawCube(position, size);
+
+        Gizmos.color = Color.yellow;
+
+        Gizmos.DrawWireCube(
+            position,
+            Vector3.one
+        );
+        
+        Gizmos.color = moveColor;
+    }
 }

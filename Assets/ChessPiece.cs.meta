@@ -3,7 +3,13 @@ guid: fa6435fcc05dbd842984dac163ffd9d4
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - pawnSprite: {fileID: 21300000, guid: e3978375f2fd4224986abd7d47afd0ea, type: 3}
+  - rookSprite: {fileID: 21300000, guid: 1744efe2b081dc048bcda0e8b8f78a2d, type: 3}
+  - knightSprite: {fileID: 21300000, guid: 57f837dfcacc5f54e9ba26a426312770, type: 3}
+  - bishopSprite: {fileID: 21300000, guid: d40476f49dfad334c9f2385352a906b1, type: 3}
+  - queenSprite: {fileID: 21300000, guid: c6b61720a93cffa419f581beaa128a94, type: 3}
+  - kingSprite: {fileID: 21300000, guid: c8440a3d1b7e1de419fc733434d149bf, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
