@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class ChessPiece : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class ChessPiece : MonoBehaviour
         Queen,
         King
     };
+
+    public int moveRadius;
 
     //The default chess piece and colors
     public options currentOption = options.Pawn;
@@ -91,26 +94,32 @@ public class ChessPiece : MonoBehaviour
         {
             case options.Pawn:
                 DrawPawnMoves();
+                moveRadius = 3;
                 break;
 
             case options.Rook:
                 DrawRookMoves();
+                moveRadius = 10;
                 break;
 
             case options.Knight:
                 DrawKnightMoves();
+                moveRadius = 3;
                 break;
 
             case options.Bishop:
                 DrawBishopMoves();
+                moveRadius = 10;
                 break;
 
             case options.Queen:
                 DrawQueenMoves();
+                moveRadius = 10;
                 break;
 
             case options.King:
                 DrawKingMoves();
+                moveRadius = 2;
                 break;
         }
     }
@@ -219,5 +228,28 @@ public class ChessPiece : MonoBehaviour
         );
         
         Gizmos.color = moveColor;
+    }
+}
+
+
+
+// Added square handle around possible moves for selected piece
+[CustomEditor(typeof(ChessPiece))]
+public class ChessPieceEditor : Editor
+{
+    public void OnSceneGUI()
+    {
+        var t = target as ChessPiece;
+        if (t != null)
+        {
+            var tr = t.transform;
+            var pos = tr.position;
+            var color = new Color(245f / 255f, 66f / 255f, 236f / 255f, 0.5f);
+            float moddedSize = t.moveRadius * 1.5f;
+            Vector3 size = new Vector3(moddedSize, moddedSize, moddedSize);
+            Handles.color = color;
+            Handles.DrawWireCube(pos, size);
+
+        }
     }
 }
