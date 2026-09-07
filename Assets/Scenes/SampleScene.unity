@@ -219,6 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa6435fcc05dbd842984dac163ffd9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveRadius: 3
   currentOption: 0
   pieceColor: {r: 1, g: 1, b: 1, a: 1}
   pawnSprite: {fileID: 21300000, guid: e3978375f2fd4224986abd7d47afd0ea, type: 3}
@@ -325,6 +326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa6435fcc05dbd842984dac163ffd9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveRadius: 10
   currentOption: 1
   pieceColor: {r: 1, g: 1, b: 1, a: 1}
   pawnSprite: {fileID: 21300000, guid: e3978375f2fd4224986abd7d47afd0ea, type: 3}
@@ -431,6 +433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa6435fcc05dbd842984dac163ffd9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveRadius: 10
   currentOption: 4
   pieceColor: {r: 1, g: 1, b: 1, a: 1}
   pawnSprite: {fileID: 21300000, guid: e3978375f2fd4224986abd7d47afd0ea, type: 3}
@@ -537,6 +540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa6435fcc05dbd842984dac163ffd9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveRadius: 10
   currentOption: 3
   pieceColor: {r: 1, g: 1, b: 1, a: 1}
   pawnSprite: {fileID: 21300000, guid: e3978375f2fd4224986abd7d47afd0ea, type: 3}
@@ -643,6 +647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa6435fcc05dbd842984dac163ffd9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveRadius: 3
   currentOption: 0
   pieceColor: {r: 1, g: 1, b: 1, a: 1}
   pawnSprite: {fileID: 21300000, guid: e3978375f2fd4224986abd7d47afd0ea, type: 3}
@@ -749,6 +754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa6435fcc05dbd842984dac163ffd9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveRadius: 10
   currentOption: 3
   pieceColor: {r: 1, g: 1, b: 1, a: 1}
   pawnSprite: {fileID: 21300000, guid: e3978375f2fd4224986abd7d47afd0ea, type: 3}
@@ -855,6 +861,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa6435fcc05dbd842984dac163ffd9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveRadius: 0
   currentOption: 0
   pieceColor: {r: 1, g: 1, b: 1, a: 1}
   pawnSprite: {fileID: 21300000, guid: e3978375f2fd4224986abd7d47afd0ea, type: 3}
@@ -1055,6 +1062,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa6435fcc05dbd842984dac163ffd9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveRadius: 10
   currentOption: 1
   pieceColor: {r: 1, g: 1, b: 1, a: 1}
   pawnSprite: {fileID: 21300000, guid: e3978375f2fd4224986abd7d47afd0ea, type: 3}
@@ -1161,6 +1169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa6435fcc05dbd842984dac163ffd9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveRadius: 3
   currentOption: 0
   pieceColor: {r: 1, g: 1, b: 1, a: 1}
   pawnSprite: {fileID: 21300000, guid: e3978375f2fd4224986abd7d47afd0ea, type: 3}
@@ -1314,6 +1323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa6435fcc05dbd842984dac163ffd9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveRadius: 3
   currentOption: 0
   pieceColor: {r: 1, g: 1, b: 1, a: 1}
   pawnSprite: {fileID: 21300000, guid: e3978375f2fd4224986abd7d47afd0ea, type: 3}
@@ -1420,6 +1430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa6435fcc05dbd842984dac163ffd9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveRadius: 3
   currentOption: 2
   pieceColor: {r: 1, g: 1, b: 1, a: 1}
   pawnSprite: {fileID: 21300000, guid: e3978375f2fd4224986abd7d47afd0ea, type: 3}
@@ -1631,6 +1642,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa6435fcc05dbd842984dac163ffd9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveRadius: 2
   currentOption: 0
   pieceColor: {r: 1, g: 1, b: 1, a: 1}
   pawnSprite: {fileID: 21300000, guid: e3978375f2fd4224986abd7d47afd0ea, type: 3}
@@ -1737,6 +1749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa6435fcc05dbd842984dac163ffd9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveRadius: 4
   currentOption: 2
   pieceColor: {r: 1, g: 1, b: 1, a: 1}
   pawnSprite: {fileID: 21300000, guid: e3978375f2fd4224986abd7d47afd0ea, type: 3}
@@ -1843,6 +1856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa6435fcc05dbd842984dac163ffd9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveRadius: 2
   currentOption: 0
   pieceColor: {r: 1, g: 1, b: 1, a: 1}
   pawnSprite: {fileID: 21300000, guid: e3978375f2fd4224986abd7d47afd0ea, type: 3}
@@ -1949,6 +1963,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa6435fcc05dbd842984dac163ffd9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveRadius: 3
   currentOption: 0
   pieceColor: {r: 1, g: 1, b: 1, a: 1}
   pawnSprite: {fileID: 21300000, guid: e3978375f2fd4224986abd7d47afd0ea, type: 3}
@@ -1957,7 +1972,7 @@ MonoBehaviour:
   bishopSprite: {fileID: 21300000, guid: d40476f49dfad334c9f2385352a906b1, type: 3}
   queenSprite: {fileID: 21300000, guid: c6b61720a93cffa419f581beaa128a94, type: 3}
   kingSprite: {fileID: 21300000, guid: c8440a3d1b7e1de419fc733434d149bf, type: 3}
-  moveColor: {r: 0, g: 1, b: 0, a: 1}
+  moveColor: {r: 0, g: 1, b: 0.04445076, a: 1}
 --- !u!1 &1829991130
 GameObject:
   m_ObjectHideFlags: 0
@@ -2055,6 +2070,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa6435fcc05dbd842984dac163ffd9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveRadius: 2
   currentOption: 5
   pieceColor: {r: 1, g: 1, b: 1, a: 1}
   pawnSprite: {fileID: 21300000, guid: e3978375f2fd4224986abd7d47afd0ea, type: 3}
